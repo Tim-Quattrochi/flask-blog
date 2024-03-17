@@ -50,7 +50,8 @@ def register():  # register view function.
             try:
                 db.execute(
                     "INSERT INTO user (username, password) VALUES (?, ?)",
-                    (username, generate_password_hash(password)),
+                    (username, generate_password_hash(password,
+                     method='pbkdf2', salt_length=16)),
                 )
                 db.commit()
             except db.IntegrityError:
