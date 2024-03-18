@@ -61,7 +61,7 @@ def register():  # register view function.
 
         flash(error)
 
-    return render_template('auth/register.html')
+    return render_template('auth/register.html.jinja')
 
 
 @bp.route('/login', methods=('GET', 'POST'))
@@ -87,7 +87,7 @@ def login():
 
         flash(error)
 
-    return render_template('auth/login.html')
+    return render_template('auth/login.html.jinja')
 
 
 @bp.route('/logout')
