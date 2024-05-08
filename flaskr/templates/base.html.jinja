@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
 <title>{% block title %}{% endblock %} - Coding Blog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link
   rel="stylesheet"
   href="{{ url_for('static', filename='style.css') }}"
 />
-<nav>
-  <h1>Coding Blog</h1>
+</head>
+
+<body>
+<nav class="nav">
+  <h1 class="text-3xl text-white">Coding Blog</h1>
   <ul>
     {% if g.user %}
     <li>
@@ -22,11 +30,15 @@
       {% endif %}
     </li>
   </ul>
-  
 </nav>
-<section class="content">
+
+<section class="blog-container">
   <header>{% block header %}{% endblock %}</header>
   {% for message in get_flashed_messages() %}
   <div class="flash">{{ message }}</div>
-  {% endfor %} {% block content %}{% endblock %}
+  {% endfor %} 
+  {% block content %}{% endblock %}
 </section>
+
+</body>
+</html>
